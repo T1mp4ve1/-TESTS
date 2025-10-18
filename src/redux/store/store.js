@@ -1,9 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import countReduOrigin from "../reducer";
+import reducers from "../reducers/reducers";
 
 const store = configureStore({
-  reducer: {
-    mainRedu: countReduOrigin,
-  },
+  reducer: reducers,
 });
 export default store;

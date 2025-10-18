@@ -1,16 +1,28 @@
-import { useDispatch, useSelector } from "react-redux";
+import { Container } from "react-bootstrap";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Count from "./components/Count.jsx";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SelectItem from "./components/SelectItem.jsx";
 
 function App() {
-  const countApp = useSelector((state) => state.mainRedu.myTestCount);
-  const dispatch = useDispatch();
   return (
     <>
-      <div>
-        <p>COUNT: {countApp}</p>
-        <button onClick={() => dispatch({ type: "INC", payload: 1 })}>+</button>
-        <button onClick={() => dispatch({ type: "DEC", payload: 1 })}>-</button>
-      </div>
+      <BrowserRouter>
+        <Container fluid>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Count />
+                  <SelectItem />
+                </>
+              }
+            />
+          </Routes>
+        </Container>
+      </BrowserRouter>
     </>
   );
 }
